@@ -1,8 +1,10 @@
-# dtu_mlops_group32_project
-Exam project submission for group 32 as part of the ML Operations course 02476 at the Technical University of Denmark, Winter 2025
-=======
+Exam project for group 32 as part of MLOps course Winter 2025.
 
-Exam project for group 32 as part of MLOps course Winter 2025
+
+#### Overall goal of the project
+#### What framework are you going to use, and you do you intend to include the framework into your project?
+#### What data are you going to run on (initially, may change)
+#### What models do you expect to use
 
 ## Project structure
 
