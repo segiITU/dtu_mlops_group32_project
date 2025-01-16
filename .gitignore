@@ -133,6 +133,18 @@ __pypackages__/
 celerybeat-schedule
 celerybeat.pid
 
+# data
+data/*
+!make_dataset.py
+
+lightning_logs/
+
+models/checkpoints/
+
+my_cache/
+
+tree.txt
+
 # SageMath parsed files
 *.sage.py
 
