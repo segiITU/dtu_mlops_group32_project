@@ -9,6 +9,25 @@ from pytorch_lightning.callbacks import ModelCheckpoint
 
 from model import PubMedSummarizer
 
+import os
+import subprocess
+
+# Install specific versions of transformers and torch
+subprocess.run(
+    ["pip", "install", "transformers==4.24.0", "torch==1.13.1", "--quiet", "--no-cache-dir"],
+    check=True
+)
+
+# Uninstall torchvision if it's installed
+subprocess.run(["pip", "uninstall", "torchvision", "-y", "--quiet"], check=True)
+
+# Verify installation
+import transformers
+import torch
+
+print(f"Transformers version: {transformers.__version__}")
+print(f"Torch version: {torch.__version__}")
+
 def train(
     train_data_path: str,
     val_data_path: Optional[str] = None,
