@@ -1,0 +1,16 @@
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  id: 'Build container'
+  args: [
+    'build',
+    '-t', 'europe-west1-docker.pkg.dev/plucky-mode-447809-r7/training-containers/pubmed-summarizer:latest',
+    '-f', 'train.dockerfile',
+    '.'
+  ]
+
+- name: 'gcr.io/cloud-builders/docker'
+  id: 'Push container'
+  args: [
+    'push',
+    'europe-west1-docker.pkg.dev/plucky-mode-447809-r7/training-containers/pubmed-summarizer:latest'
+  ]
