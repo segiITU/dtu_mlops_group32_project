@@ -5,7 +5,7 @@ from datasets import Dataset, load_dataset, DatasetDict
 import re
 from dtu_mlops_group32_project import _PATH_DATA
 
-DEFAULT_CACHE_DIR = subfolder_path = _PATH_DATA + "/processed"
+DEFAULT_CACHE_DIR = _PATH_DATA + "/processed"
 
 
 class MyDataset:

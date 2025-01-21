@@ -10,9 +10,12 @@ from torch.utils.data import DataLoader
 from pytorch_lightning.callbacks import ModelCheckpoint
 
 from model import BartSummarizer
+from dtu_mlops_group32_project import _PATH_DATA, _PROJECT_ROOT
 
-DEFAULT_CACHE_DIR_TR = Path(__file__).parent.parent.parent / "data/processed/train"
-DEFAULT_CACHE_DIR_VAL = Path(__file__).parent.parent.parent / "data/processed/validation"
+## TODO: Correct checkpoint dir
+
+DEFAULT_TRAINING = _PATH_DATA + "/processed/train"
+DEFAULT_VAL = _PATH_DATA + "/processed/validation"
 
 
 def train(
@@ -22,7 +25,7 @@ def train(
     max_epochs: int = 1,
     learning_rate: float = 2e-5,
     debug_mode: bool = False,
-    checkpoint_dir: str = "models/checkpoints"
+    checkpoint_dir: str = _PROJECT_ROOT + "models/checkpoints"
 ):
     """
     Train the BART summarization model
@@ -124,13 +127,13 @@ if __name__ == "__main__":
     parser.add_argument(
         '--train_data_path',
         type=str,
-        required=True,
+        default=DEFAULT_TRAINING,
         help='Path to training data'
     )
     parser.add_argument(
         '--val_data_path',
         type=str,
-        default=DEFAULT_CACHE_DIR_VAL,
+        default=DEFAULT_VAL,
         help='Path to validation data (optional)'
     )
     parser.add_argument(
