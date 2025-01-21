@@ -3,10 +3,10 @@ import typer
 from typing import Optional
 from datasets import Dataset, load_dataset, DatasetDict
 import re
-#TO DO:
-#connect this to DVC
+from dtu_mlops_group32_project import _PATH_DATA
 
-DEFAULT_CACHE_DIR = Path(__file__).parent.parent.parent / "data/processed"
+DEFAULT_CACHE_DIR = subfolder_path = _PATH_DATA + "/processed"
+
 
 class MyDataset:
     """
@@ -65,7 +65,8 @@ class MyDataset:
 def preprocess(
     dataset_name: str = typer.Argument(default="ccdv/pubmed-summarization"),
     cache_dir: Path = typer.Argument(default=DEFAULT_CACHE_DIR),
-    k: Optional[int] = typer.Option(None)
+    k: Optional[int] = typer.Option(None),
+    index: Optional[int] = typer.Option(None)
 ) -> None:
     print("Preprocessing data...")
     dataset = MyDataset(dataset_name)
