@@ -101,7 +101,7 @@ def train(
         enable_progress_bar=True,
         callbacks=[checkpoint_callback],
         limit_train_batches=1.0 if not debug_mode else 0.1,
-        limit_val_batches=1.0 if not debug_mode else 0.1,
+        limit_val_batches=None if debug_mode else 0.1,
         val_check_interval=0.25,
         log_every_n_steps=10
     )
