@@ -162,7 +162,7 @@ if __name__ == "__main__":
     parser.add_argument(
         '--checkpoint_dir',
         type=str,
-        default="models/checkpoints",
+        default=_PROJECT_ROOT + "models/checkpoints",
         help='Directory to save model checkpoints'
     )
     
