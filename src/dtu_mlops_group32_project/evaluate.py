@@ -5,11 +5,13 @@ import torch
 from datasets import Dataset
 from torch.utils.data import DataLoader
 from model import BartSummarizer
+from dtu_mlops_group32_project import _PROJECT_ROOT
 
+print(_PROJECT_ROOT)
 def evaluate(
-    checkpoint_dir: str = "models/checkpoints",
-    test_data_path: str = "data/test",
-    output_dir: str = "models/evaluation",
+    checkpoint_dir: str = _PROJECT_ROOT + "/models/checkpoints",
+    test_data_path: str = _PROJECT_ROOT + "/data/test",
+    output_dir: str = _PROJECT_ROOT + "/models/evaluation",
     batch_size: int = 4,
     debug_mode: bool = False
 ):
@@ -21,7 +23,10 @@ def evaluate(
     checkpoint_path = os.path.join(checkpoint_dir, checkpoint_files[0])
     print(f"Using checkpoint: {checkpoint_path}")
 
-    model = BartSummarizer.load_from_checkpoint(checkpoint_path)
+    model = BartSummarizer.load_from_checkpoint(
+    checkpoint_path=_PROJECT_ROOT + "/models/checkpoints/last.ckpt",
+    map_location="cpu"
+    )    
     model.test_step = model.validation_step
     
     test_dataset = Dataset.load_from_disk(test_data_path)
@@ -46,9 +51,9 @@ def evaluate(
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Evaluate BART Summarizer")
-    parser.add_argument("--checkpoint_dir", type=str, default="models/checkpoints")
-    parser.add_argument("--test_data_path", type=str, default="data/test")
-    parser.add_argument("--output_dir", type=str, default="models/evaluation")
+    parser.add_argument("--checkpoint_dir", type=str, default=_PROJECT_ROOT + "/models/checkpoints")
+    parser.add_argument("--test_data_path", type=str, default=_PROJECT_ROOT + "/data/processed/test")
+    parser.add_argument("--output_dir", type=str, default=_PROJECT_ROOT + "models/evaluation")
     parser.add_argument("--batch_size", type=int, default=4)
     parser.add_argument("--debug_mode", action="store_true")
     

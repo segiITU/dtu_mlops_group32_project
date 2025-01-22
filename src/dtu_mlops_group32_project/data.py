@@ -7,6 +7,7 @@ from dtu_mlops_group32_project import _PATH_DATA
 
 DEFAULT_CACHE_DIR = _PATH_DATA + "/processed"
 
+#TO-DO: Dataset statistics and tracking: https://skaftenicki.github.io/dtu_mlops/s5_continuous_integration/cml/
 
 class MyDataset:
     """
