@@ -1,0 +1,8 @@
+lr:
+  value: 0.00002
+epochs:
+  value: 1
+batch_size:
+  value: 4
+seed:
+  value: 42
