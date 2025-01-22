@@ -12,8 +12,6 @@ from pytorch_lightning.callbacks import ModelCheckpoint
 from model import BartSummarizer
 from dtu_mlops_group32_project import _PATH_DATA, _PROJECT_ROOT
 
-## TODO: Correct checkpoint dir
-
 DEFAULT_TRAINING = _PATH_DATA + "/processed/train"
 DEFAULT_VAL = _PATH_DATA + "/processed/validation"
 
@@ -177,4 +175,3 @@ if __name__ == "__main__":
         debug_mode=args.debug_mode,
         checkpoint_dir=args.checkpoint_dir
     )
-
