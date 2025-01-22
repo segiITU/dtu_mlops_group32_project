@@ -97,6 +97,13 @@ class BartSummarizer(pl.LightningModule):
         self.log("val_loss", loss, batch_size=self.batch_size, sync_dist=True)
         return loss
     
+    def test_step(self, batch: Dict[str, List[str]], batch_idx: int) -> torch.Tensor:
+        """Test step"""
+        loss = self._step(batch)
+        self.log("test_loss", loss, batch_size=self.batch_size, sync_dist=True)
+        return loss
+
+
     def configure_optimizers(self) -> torch.optim.Optimizer:
         """Configure optimizer"""
         return torch.optim.AdamW(self.parameters(), lr=self.learning_rate)

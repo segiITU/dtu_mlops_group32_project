@@ -25,7 +25,7 @@ def train(
     max_epochs: int = 1,
     learning_rate: float = 2e-5,
     debug_mode: bool = False,
-    checkpoint_dir: str = _PROJECT_ROOT + "models/checkpoints"
+    checkpoint_dir: str = _PROJECT_ROOT + "/models/checkpoints"
 ):
     """
     Train the BART summarization model
@@ -162,7 +162,7 @@ if __name__ == "__main__":
     parser.add_argument(
         '--checkpoint_dir',
         type=str,
-        default=_PROJECT_ROOT + "models/checkpoints",
+        default=_PROJECT_ROOT + "/models/checkpoints",
         help='Directory to save model checkpoints'
     )
     
