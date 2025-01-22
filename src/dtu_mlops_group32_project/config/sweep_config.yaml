@@ -1,17 +1,18 @@
 program: train.py
 name: sweepdemo
 project: dtu_mlops_group32_project  # change this
-entity: arzuburcuguven  # change this
+entity: dtu_mlops_group32_project  # change this
 metric:
     goal: minimize
     name: validation_loss
+method: bayes
 parameters:
     learning_rate:
         min: 0.00002
         max: 0.1
-        distribution: log_uniform
     batch_size:
         values: [4, 8, 16]
-    epochs:
+    max_epochs:
         min: 2
         max: 5
+
