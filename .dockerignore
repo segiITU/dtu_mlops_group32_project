@@ -7,6 +7,8 @@ models/
 # Ignore logs
 logs/
 
+lightning_logs/
+
 # Ignore local development files
 .env
 .venv/
