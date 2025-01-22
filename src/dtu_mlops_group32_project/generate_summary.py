@@ -2,18 +2,38 @@ import torch
 from transformers import BartTokenizer
 from model import BartSummarizer
 from typing import Dict, Union
+from google.cloud import storage
+import os
 
-def generate_summary(text: str, model_path: str = "models/checkpoints/final_model.pt") -> Dict[str, str]:
+def download_model(bucket_name: str, source_blob_name: str, destination_file_name: str) -> None:
+    """Downloads a file from Google Cloud Storage."""
+    storage_client = storage.Client()
+    bucket = storage_client.bucket(bucket_name)
+    blob = bucket.blob(source_blob_name)
+    blob.download_to_filename(destination_file_name)
+    print(f"Downloaded {source_blob_name} to {destination_file_name}.")
+
+def generate_summary(text: str, model_path: str = "final_model.pt") -> Dict[str, str]:
     """
     Generate summary from input text using loaded BART model.
     
     Args:
         text: Input text to summarize
-        model_path: Path to the saved model weights
+        model_path: Path to the saved model weights (local or GCS)
         
     Returns:
         Dict containing original text and generated summary
     """
+    # Download the model from GCS if it doesn't exist locally
+    if not os.path.exists(model_path):
+        print("Downloading model from GCS...")
+        download_model(
+            bucket_name="dtu_mlops_group32_project_bucket",
+            source_blob_name="models/final_model.pt",
+            destination_file_name=model_path
+        )
+    
+    # Load the model
     model = BartSummarizer()
     model.load_state_dict(torch.load(model_path))
     model.eval()
@@ -45,6 +65,3 @@ def generate_summary(text: str, model_path: str = "models/checkpoints/final_mode
         "input_text": text,
         "summary": summary
     }
-
-#result = generate_summary("{article: xxx}")
-#print(result["summary"])
