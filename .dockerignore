@@ -1,11 +1,13 @@
 # Ignore data files
 data/
 
-# Ignore model files (if they are not needed in the image)
+# Ignore model files
 models/
 
 # Ignore logs
 logs/
+
+lightning_logs/
 
 # Ignore local development files
 .env
