@@ -33,6 +33,7 @@ jobs:
           pip install -r requirements.txt
           pip install torch pytest coverage nltk datasets
           python -c "import nltk; nltk.download('wordnet')"
+          pip install -e .
           pip list
 
       - name: Run tests & coverage
