@@ -34,7 +34,7 @@ def evaluate(
     trainer = pl.Trainer(
         accelerator="gpu" if torch.cuda.is_available() else "cpu",
         devices=1,
-        limit_test_batches=None if debug_mode else 1.0  # Changed this line
+        limit_test_batches=None if debug_mode else 1.0  
     )
     results = trainer.test(model=model, dataloaders=test_loader)
 
