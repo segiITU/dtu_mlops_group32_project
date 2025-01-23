@@ -5,7 +5,7 @@ from nltk.util import ngrams
 from nltk.translate.bleu_score import sentence_bleu
 
 # from ....dtu_mlops_group32_project.src.dtu_mlops_group32_project.data import MyDataset
-from src.dtu_mlops_group32_project.data import MyDataset
+from dtu_mlops_group32_project.data import MyDataset
 
 def test_my_dataset():
     """Test the MyDataset class correctly loads the dataset and its keys."""
