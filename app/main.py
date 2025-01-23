@@ -4,7 +4,7 @@ from typing import Dict
 import os
 import torch
 from transformers import BartTokenizer
-from model import BartSummarizer
+from src.dtu_mlops_group32_project.model import BartSummarizer
 from google.cloud import storage
 from contextlib import asynccontextmanager
 
@@ -12,6 +12,11 @@ from contextlib import asynccontextmanager
 # Define request model
 class SummarizationRequest(BaseModel):
     text: str
+
+
+# Initialize FastAPI app
+app = FastAPI()
+
 
 # Load model function
 def load_model(model_path: str = "final_model.pt") -> BartSummarizer:
@@ -86,9 +91,6 @@ async def lifespan(app: FastAPI):
     del model, MODEL_PATH
 
 app = FastAPI(lifespan=lifespan)
-
-# Initialize FastAPI app
-app = FastAPI()
 
 
 # Define the API endpoint
