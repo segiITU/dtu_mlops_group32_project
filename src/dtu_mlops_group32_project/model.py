@@ -1,7 +1,7 @@
 import pytorch_lightning as pl
 import torch
 from transformers import BartForConditionalGeneration, BartTokenizer
-from typing import Optional, Dict, List
+from typing import Dict, List
 
 class BartSummarizer(pl.LightningModule):
     def __init__(

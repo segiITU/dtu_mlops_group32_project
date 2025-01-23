@@ -1,7 +1,7 @@
 from pathlib import Path
 import typer
 from typing import Optional
-from datasets import Dataset, load_dataset, DatasetDict
+from datasets import load_dataset, DatasetDict
 import re
 from dtu_mlops_group32_project import _PATH_DATA
 

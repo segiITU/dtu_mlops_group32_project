@@ -1,6 +1,5 @@
 import os
 import torch
-from transformers import BartTokenizer
 from model import BartSummarizer
 from typing import Dict
 from google.cloud import storage

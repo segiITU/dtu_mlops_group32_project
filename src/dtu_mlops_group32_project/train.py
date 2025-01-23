@@ -1,7 +1,5 @@
 import argparse
 from typing import Optional
-import os
-from pathlib import Path
 import random
 import numpy as np
 
