@@ -6,9 +6,8 @@ import torch
 from transformers import BartTokenizer
 from model import BartSummarizer
 from google.cloud import storage
+from contextlib import asynccontextmanager
 
-# Initialize FastAPI app
-app = FastAPI()
 
 # Define request model
 class SummarizationRequest(BaseModel):
@@ -70,17 +69,27 @@ def generate_summary(text: str, model: BartSummarizer) -> Dict[str, str]:
         "summary": summary
     }
 
-# Load the model at startup
-MODEL_PATH = "final_model.pt"
-if not os.path.exists(MODEL_PATH):
-    print("Downloading model from GCS...")
-    download_model(
-        bucket_name="dtu_mlops_group32_project_bucket",
-        source_blob_name="models/final_model.pt",
-        destination_file_name=MODEL_PATH
-    )
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    MODEL_PATH = "final_model.pt"
+    if not os.path.exists(MODEL_PATH):
+        print("Downloading model from GCS...")
+        download_model(
+            bucket_name="dtu_mlops_group32_project_bucket",
+            source_blob_name="models/final_model.pt",
+            destination_file_name=MODEL_PATH
+        )
 
-model = load_model(MODEL_PATH)
+    global model
+    model = load_model(MODEL_PATH)
+    yield
+    del model, MODEL_PATH
+
+app = FastAPI(lifespan=lifespan)
+
+# Initialize FastAPI app
+app = FastAPI()
+
 
 # Define the API endpoint
 @app.post("/summarize")

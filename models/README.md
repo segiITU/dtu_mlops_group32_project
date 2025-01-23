@@ -1,0 +1,3 @@
+### Getting the model
+A link to our final trained model is publicly available for download via [a Google Cloud Storage Bucket by clicking here](https://storage.googleapis.com/dtu_mlops_group32_project_bucket/models/final_model.pt). The model is 532 MB.
+To download the model for use in this project, you can run the src\dtu_mlops_group32_project\generate_summary.py script, which will also provide you with an example of how the model can be used for abstractive summarization.

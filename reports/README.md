@@ -179,7 +179,7 @@ s241047, s243805, s250394, s250678
 >
 > Answer:
 
---- question 5 fill here ---
+We initialized the project with the MLOps-specific cookiecutter template. We have removed the /notebooks folder as we have not created any notebooks to showcase this project as well as the /dockerfiles folder as all our dockerfiles were added to the root dir for ease of access. Other than that, we have have been committed to the project structure which was provided with the template as we have found that this structure is very good for maintaining a structured MLOps project with its dedicated /src, /data, /tests and /models folders being particularly useful. The template scripts and the sub-directories which were also provided in the template have also been very useful, and we have largely used these as a starting point for our project. 
 
 ### Question 6
 
