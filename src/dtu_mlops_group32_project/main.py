@@ -17,7 +17,7 @@ async def lifespan(app: FastAPI):
     summarizer = BartSummarizer(model_name="facebook/bart-base")
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-    model_path = "C:/Users/sebas/dtu_mlops_group32_project/models/checkpoints/final_model.pt"
+    model_path = "/app/models/checkpoints/final_model.pt"
     checkpoint = torch.load(model_path, map_location=device)  # Load the checkpoint to correct device
 
     summarizer.load_state_dict(checkpoint)  # Load the state_dict into the model
