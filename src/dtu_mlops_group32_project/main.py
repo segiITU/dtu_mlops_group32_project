@@ -1,6 +1,7 @@
 from contextlib import asynccontextmanager
 import torch
 from fastapi import FastAPI, File, UploadFile
+from fastapi.responses import RedirectResponse
 import pytorch_lightning as pl
 
 # Import your BartSummarizer class (the class definition you provided)
@@ -14,17 +15,17 @@ async def lifespan(app: FastAPI):
     global summarizer, device, gen_kwargs
     print("Loading custom BART summarization model from final_model.pt")
 
-    # Initialize BartSummarizer instance and load the saved state_dict from final_model.pt
+    # Initialize BartSummarizer instance
     summarizer = BartSummarizer(model_name="facebook/bart-base")
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
     # Load the saved model state
-    model_path = "path/to/final_model.pt"
+    model_path = "C:/Users/sebas/dtu_mlops_group32_project/models/checkpoints/final_model.pt"
     checkpoint = torch.load(model_path, map_location=device)  # Load the checkpoint to correct device
 
     # Load the state_dict into the model
-    summarizer.load_state_dict(checkpoint['state_dict'])  # Make sure your saved model has 'state_dict' key
-    summarizer.to(device)
+    summarizer.load_state_dict(checkpoint)  # Load the state_dict into the model
+    summarizer.to(device)  # Move the model to the appropriate device
     summarizer.eval()  # Set the model to evaluation mode
 
     # Define generation arguments for beam search summarization
@@ -36,6 +37,11 @@ async def lifespan(app: FastAPI):
     del summarizer, device, gen_kwargs
 
 app = FastAPI(lifespan=lifespan)
+
+@app.get("/")
+async def root():
+    """Redirect to the API documentation."""
+    return RedirectResponse(url="/docs")
 
 @app.post("/summarize/")
 async def summarize(file: UploadFile = File(...)):
