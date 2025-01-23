@@ -4,7 +4,7 @@ from fastapi import FastAPI, File, UploadFile
 from fastapi.responses import RedirectResponse
 import pytorch_lightning as pl
 
-from model import BartSummarizer
+from .model import BartSummarizer
 
 app = FastAPI()
 
