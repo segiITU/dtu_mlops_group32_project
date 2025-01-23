@@ -1,9 +1,6 @@
 # Ignore data files
 data/
 
-# Ignore model files
-models/
-
 # Ignore logs
 logs/
 
