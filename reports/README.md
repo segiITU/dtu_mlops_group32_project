@@ -360,7 +360,7 @@ We implemented 5 tests. We focused on if the data processing, model or the API i
 >
 > Answer:
 
---- question 16 fill here ---
+
 
 ## Working in the cloud
 
@@ -434,8 +434,8 @@ We implemented 5 tests. We focused on if the data processing, model or the API i
 >
 > Answer:
 
---- question 22 fill here ---
-
+We could not manage to train the model in the cloud. In our region, not many GPU types were available. That is why neither the Compute Engine, nor the Vertex AI were completely implemented,
+though we did start training runs over Vertex AI to see how slow it was on CPU.
 ## Deployment
 
 ### Question 23
