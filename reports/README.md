@@ -328,8 +328,7 @@ We did not use config files for our experiments, apart from when we did a sweep 
 >
 > Answer:
 
-
-One of the hyperparameters in the training script is a seed, which is used to make the experiments reproducible. This seed ensures that when training a model with a specific set of hyperparameters, the same results can be achieved. This seed can also be changed by parsing a different seed through the argument parser. 
+To ensure that no information is lost, we utilised ``wandb`` to record the runs and the respective results from different hyperparameter configurations. One of the hyperparameters in the training script is a seed, which is used to make the experiments reproducible. This seed ensures that when training a model with a specific set of hyperparameters, the same results can be achieved. This seed can also be changed by parsing a different seed through the argument parser. 
 
 ### Question 14
 
@@ -624,5 +623,5 @@ The biggest challenge we faced was the high computational demand of the t5-model
 
 s250678 was in charge of developing of setting up the initial cookie cutter project and developing of the docker containers for deploying our application. He has used genAI tools to help adjust the dockerfiles and with creating CLI inputs for deploying to the GCP.
 s250394 developed the data processing, model and training files. She also run the model training, and was responsible for W&B. She also helped with testing and continious integration. She has used genAI tools for debugging the code.
-s243805 is responsible for the creation of the FastAPI and the integration with the rest of the code, as well as for the dockerfile and configuration files for its deployment. He has used genAI to help solve bugs and errors in the code.
+s243805 is responsible for the creation of the FastAPI and the integration with the rest of the code, as well as for the dockerfile and configuration files for its deployment. He has used genAI to help solve bugs and errors in the code. s241047 was in charge of testing and mainly responsible for the report, but due to technical issue were limited in what they could provide. Has contributed to model and training files as well as general continuous integration, and has generally helped where able. Has used genAI tools for debugging code.
 
