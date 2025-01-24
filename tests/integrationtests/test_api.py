@@ -1,5 +1,5 @@
 from fastapi.testclient import TestClient
-from app.main import app
+from dtu_mlops_group32_project.main import app
 client = TestClient(app)
 
 def test_read_root(model):

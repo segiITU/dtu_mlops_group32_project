@@ -1,4 +1,4 @@
-from src.dtu_mlops_group32_project.model import BartSummarizer
+from dtu_mlops_group32_project.model import BartSummarizer
 
 def test_model():
     """Test the BartSummarizer model."""
