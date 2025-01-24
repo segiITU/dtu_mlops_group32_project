@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-      -dev_model
+      - dev_model
   pull_request:
     branches:
       - main
