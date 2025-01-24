@@ -47,6 +47,5 @@ jobs:
 
       - name: Run tests & coverage
         run: |
-          export PYTHONPATH=$PYTHONPATH:${{ github.workspace }}
           coverage run -m pytest tests/ -v
           coverage report -m
