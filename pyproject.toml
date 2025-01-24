@@ -20,8 +20,8 @@ requires-python = ">=3.11"
 dynamic = ["dependencies", "optional-dependencies"]
 
 [tool.setuptools]
-packages = {find = {where = ["."]}} # Automatically find all packages in the project
-package-dir = {"" = "."}  # Root directory as the base for packages
+# Find both the src-based package and the app package
+packages = {find = {where = ["src", "app"]}}
 
 [tool.setuptools.dynamic]
 dependencies = {file = ["requirements.txt"]}
