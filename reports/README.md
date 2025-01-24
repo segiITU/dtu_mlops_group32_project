@@ -84,8 +84,8 @@ will check the repositories and the code to verify your answers.
 * [x] Create a data storage in GCP Bucket for your data and link this with your data version control setup (M21)
 * [ ] Create a trigger workflow for automatically building your docker images (M21)
 * [ ] Get your model training in GCP using either the Engine or Vertex AI (M21)
-* [ ] Create a FastAPI application that can do inference using your model (M22)
-* [ ] Deploy your model in GCP using either Functions or Run as the backend (M23)
+* [x]  Create a FastAPI application that can do inference using your model (M22)
+* [x]  Deploy your model in GCP using either Functions or Run as the backend (M23)
 * [ ] Write API tests for your application and setup continues integration for these (M24)
 * [ ] Load test your application (M24)
 * [ ] Create a more specialized ML-deployment API using either ONNX or BentoML, or both (M25)
@@ -607,4 +607,5 @@ The biggest challenge we faced was the high computational demand of the t5-model
 
 s250678 was in charge of developing of setting up the initial cookie cutter project and developing of the docker containers for deploying our application. He has used genAI tools to help adjust the dockerfiles and with creating CLI inputs for deploying to the GCP.
 s250394 developed the data processing, model and training files. She also run the model training, and was responsible for W&B. She also helped with testing and continious integration. She has used genAI tools for debugging the code.
+s243805 is responsible for the creation of the FastAPI and the integration with the rest of the code, as well as for the dockerfile and configuration files for its deployment. He has used genAI to help solve bugs and errors in the code.
 
