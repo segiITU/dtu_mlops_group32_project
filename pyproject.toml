@@ -7,7 +7,10 @@ name = "dtu_mlops_group32_project"
 version = "0.0.1"
 description = "Exam project for group 32 as part of MLOps course Winter 2025"
 authors = [
-  { name = "group32", email = "your@email.com" },
+  { name = "Sebastian Gilson", email = "s250678@student.dtu.dk" },
+  { name = "Arzu Burcu Güven", email = "s250394@student.dtu.dk" },
+  { name = "Knud Appel Erschens Mondrup", email = "s241047@student.dtu.dk" },
+  { name = "Oriol Baldrís Vendrell", email = "s243805@student.dtu.dk" }
 ]
 
 keywords = ["machine learning", "MLOps"]
@@ -32,4 +35,11 @@ dev = {file = ['requirements_dev.txt']}
 line-length = 120
 
 [tool.coverage.run]
-omit = ["tests/*"]
+omit = [
+  "src/dtu_mlops_group32_project/evaluate.py",
+  "src/dtu_mlops_group32_project/generate_local.py",
+  "src/dtu_mlops_group32_project/generate_summary.py",
+  "src/dtu_mlops_group32_project/main.py",
+  "src/dtu_mlops_group32_project/train.py",
+  "src/dtu_mlops_group32_project/visualize.py",
+]
