@@ -3,3 +3,4 @@ pytest
 datasets==3.2.0
 coverage
 nltk
+pytorch_lightning
