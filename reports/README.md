@@ -50,7 +50,7 @@ will check the repositories and the code to verify your answers.
 
 * [x] Create a git repository (M5)
 * [x] Make sure that all team members have write access to the GitHub repository (M5)
-* [ ] Create a dedicated environment for you project to keep track of your packages (M2)
+* [x] Create a dedicated environment for you project to keep track of your packages (M2)
 * [x] Create the initial file structure using cookiecutter with an appropriate template (M6)
 * [x] Fill out the `data.py` file such that it downloads whatever data you need and preprocesses it (if necessary) (M6)
 * [x] Add a model to `model.py` and a training procedure to `train.py` and get that running (M6)
@@ -58,7 +58,7 @@ will check the repositories and the code to verify your answers.
     are using (M2+M6)
 * [x] Remember to comply with good coding practices (`pep8`) while doing the project (M7)
 * [x] Do a bit of code typing and remember to document essential parts of your code (M7)
-* [ ] Setup version control for your data or part of your data (M8)
+* [x] Setup version control for your data or part of your data (M8)
 * [x] Add command line interfaces and project commands to your code where it makes sense (M9)
 * [x] Construct one or multiple docker files for your code (M10)
 * [x] Build the docker files locally and make sure they work as intended (M10)
@@ -82,14 +82,14 @@ will check the repositories and the code to verify your answers.
 * [ ] Add a continues workflow that triggers when data changes (M19)
 * [ ] Add a continues workflow that triggers when changes to the model registry is made (M19)
 * [x] Create a data storage in GCP Bucket for your data and link this with your data version control setup (M21)
-* [ ] Create a trigger workflow for automatically building your docker images (M21)
+* [x] Create a trigger workflow for automatically building your docker images (M21)
 * [ ] Get your model training in GCP using either the Engine or Vertex AI (M21)
-* [ ] Create a FastAPI application that can do inference using your model (M22)
-* [ ] Deploy your model in GCP using either Functions or Run as the backend (M23)
+* [x] Create a FastAPI application that can do inference using your model (M22)
+* [x] Deploy your model in GCP using either Functions or Run as the backend (M23)
 * [ ] Write API tests for your application and setup continues integration for these (M24)
 * [ ] Load test your application (M24)
 * [ ] Create a more specialized ML-deployment API using either ONNX or BentoML, or both (M25)
-* [ ] Create a frontend for your API (M26)
+* [x] Create a frontend for your API (M26)
 
 ### Week 3
 
@@ -106,10 +106,10 @@ will check the repositories and the code to verify your answers.
 
 * [ ] Write some documentation for your application (M32)
 * [ ] Publish the documentation to GitHub Pages (M32)
-* [ ] Revisit your initial project description. Did the project turn out as you wanted?
-* [ ] Create an architectural diagram over your MLOps pipeline
-* [ ] Make sure all group members have an understanding about all parts of the project
-* [ ] Uploaded all your code to GitHub
+* [x] Revisit your initial project description. Did the project turn out as you wanted?
+* [x] Create an architectural diagram over your MLOps pipeline
+* [x] Make sure all group members have an understanding about all parts of the project
+* [x] Uploaded all your code to GitHub
 
 ## Group information
 
@@ -164,9 +164,7 @@ We utilized Pytorch Lightning framework for the training step. For our dataset, 
 >
 > Answer:
 
-We used conda, pip, and git to manage our dependencies. To get out dependencies a new member would need to clone this repository,
-
-create a conda environment, and then install dependencies in the requirements files. 
+We used conda, pip, and git to manage our dependencies. To get out dependencies a new member would need to clone this repository, create a conda environment, and then install dependencies in the requirements files. 
 
 ### Question 5
 
@@ -277,7 +275,7 @@ We did not utilize pull requests as much as we perhaps should, as they were main
 >
 > Answer:
 
-We used DVC with Google Drive which made us able to store the data remotely and avoid having the data stored within the pipeline on GitHub. This would have helped emmensly with controlling the data, as any potential changes to the data would otherwise mean having to upload the entire dataset and any changes made to it onto GitHub. We made minimal changes to our data after preprocessing it, so the main benefit of using it, was to avoid storing the dataset on GitHub.
+We used DVC with Google Drive which made us able to store the data remotely and avoid having the data stored within the pipeline on GitHub. This would have helped immensely with controlling the data, as any potential changes to the data would otherwise mean having to upload the entire dataset and any changes made to it onto GitHub. We made minimal changes to our data after preprocessing it, so the main benefit of using it was to avoid storing the dataset on GitHub.
 
 ### Question 11
 
@@ -365,7 +363,7 @@ As seen in the first figure below, we have tracked the training loss and the val
 >
 > Answer:
 
---- question 15 fill here ---
+For our project, we developed several images: [one "baseline" Docker image](predict.dockerfile) to be able to create a container for inference both locally and on the Google Cloud Platform (GCP), as well as two images - one [front end](frontend.dockerfile) and one [backend image](backend.dockerfile) - to create containers for a User Interface (created with the Gradio package) and a backend container with our fine-tuned model. To test the images and running containers, we first ran them locally with Docker Desktop. Then, we deployed the images to GCP's Artifact Registry, where they could be re-used in different application in Cloud Run. You can view our front-end containerized UI [by clicking here](https://bart-summarizer-frontend-962941447685.europe-west1.run.app) - it will likely only be running a couple of days after exam submission 24-Jan-2025. 
 
 ### Question 16
 
@@ -398,7 +396,12 @@ We did not try profiling our code, not because we think it's already perfect, bu
 >
 > Answer:
 
---- question 17 fill here ---
+We utilsed GCP's: 
+* Artifact Registry for storing Docker images to be deployed on different services, e.g. Cloud Run.
+* Cloud Run for running the containers created from the images in Artifact Registry.
+* Cloud Build for triggering an automatic Cloud Build from local dockerfile --> image in Artifact Registry --> Cloud Run. The trigger was based on a push to main, so we soon had to update the trigger require approval because we pushed so much. 
+
+We also experimented with Vertex AI, i.e. GCP's AI platform, and Compute Engine (GCP's version of virtual machine), but we did not finally implement these in our project. 
 
 ### Question 18
 
@@ -413,7 +416,7 @@ We did not try profiling our code, not because we think it's already perfect, bu
 >
 > Answer:
 
---- question 18 fill here ---
+We experimented with using Compute Engine resources for training our model. We experimented with initializing a NVIDIA V100 and NVIDIA Tesla P4 on the europe-west4 cluster. Since we were unfamiliar with Compute Engine before this course, it was quite time-consuming to initialize an VM and even more so to be able to train a model, so we decided to do our training on a HPC, which we are more familiar with. 
 
 ### Question 19
 
@@ -422,7 +425,9 @@ We did not try profiling our code, not because we think it's already perfect, bu
 >
 > Answer:
 
---- question 19 fill here ---
+![image](https://github.com/user-attachments/assets/a3292061-ab3c-4a01-9f5c-2435255d6219)
+
+![image](https://github.com/user-attachments/assets/4f05a492-99a4-4352-8bfc-87e4dd217871)
 
 ### Question 20
 
@@ -431,7 +436,10 @@ We did not try profiling our code, not because we think it's already perfect, bu
 >
 > Answer:
 
---- question 20 fill here ---
+![image](https://github.com/user-attachments/assets/f86ca9d2-724b-4e7b-9e1a-1d0ddec0cae3)
+
+![image](https://github.com/user-attachments/assets/e574c02e-c38b-4c52-a2ec-04412eb42806)
+
 
 ### Question 21
 
@@ -439,8 +447,9 @@ We did not try profiling our code, not because we think it's already perfect, bu
 > **your project. You can take inspiration from [this figure](figures/build.png).**
 >
 > Answer:
+![image](https://github.com/user-attachments/assets/13131096-6a79-4542-9624-d786bff2cadc)
 
---- question 21 fill here ---
+![image](https://github.com/user-attachments/assets/520443d0-db6e-4b25-ba6f-d3ef9204370c)
 
 ### Question 22
 
@@ -455,9 +464,7 @@ We did not try profiling our code, not because we think it's already perfect, bu
 >
 > Answer:
 
-We could not manage to train the model in the cloud. In our region, not many GPU types were available. That is why neither the Compute Engine, nor the Vertex AI were completely implemented,
-
-though we did start training runs over Vertex AI to see how slow it was on CPU.
+We could not manage to train the model in the cloud. In our region, not many GPU types were available. That is why neither the Compute Engine, nor the Vertex AI were completely implemented, though we did start training runs over Vertex AI to see how slow it was on CPU.
 
 ## Deployment
 
@@ -474,7 +481,7 @@ though we did start training runs over Vertex AI to see how slow it was on CPU.
 >
 > Answer:
 
---- question 23 fill here ---
+We did manage to write an API for our model using FastAPI - see our [main.py script here](src\dtu_mlops_group32_project\main.py). We created a POST endpoint called /summarize/ to accept input as a text file. We could have made the API more robust, if time permitted. 
 
 ### Question 24
 
@@ -490,7 +497,9 @@ though we did start training runs over Vertex AI to see how slow it was on CPU.
 >
 > Answer:
 
---- question 24 fill here ---
+Yes, we did manage to deploy our API, both locally and in the cloud. You can view an example of our deployed API which is publically available via URL https://bart-summarizer-962941447685.europe-west1.run.app. If you want to try to call the API and use our summarization model you can use curl with the following example:
+
+>curl -X POST -F "file=@C:<file_location/>input.txt" https://bart-summarizer-962941447685.europe-west1.run.app/summarize/
 
 ### Question 25
 
@@ -539,7 +548,7 @@ We did not manage to implement any tools for monitoring the data due to time con
 >
 > Answer:
 
-Group member s250678 spent all $50 free USD credits during the exercises and activated another free billing account. It is difficult to get a cost breakdown of a billing account when it uses free credits, so it has not been possible to find out exactly what services drained the $50 free credits, but he presumably activated a service and forgot to turn it off again.
+Group member s250678 spent all 50 free USD credits during the exercises and activated another free billing account. It is difficult to get a cost breakdown of a billing account when it uses free credits, so it has not been possible to find out exactly what services drained the $50 free credits, but he presumably activated a service and forgot to turn it off again.
 s250394 spent 3.07 overall, but it is difficult to assess how much was spent on the exercises and how much was spent on the project.
 
 ### Question 28
@@ -556,7 +565,7 @@ s250394 spent 3.07 overall, but it is difficult to assess how much was spent on 
 >
 > Answer:
 
---- question 28 fill here ---
+We only implemented a frontend with Gradio, which you can [see here](https://bart-summarizer-frontend-962941447685.europe-west1.run.app). Unfortunately, we did not manage to link our trained model on the backend with this frontend UI, so you are not able to do a summatization task with the link provided. 
 
 ### Question 29
 
