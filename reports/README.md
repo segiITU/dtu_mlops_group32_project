@@ -84,8 +84,8 @@ will check the repositories and the code to verify your answers.
 * [x] Create a data storage in GCP Bucket for your data and link this with your data version control setup (M21)
 * [x] Create a trigger workflow for automatically building your docker images (M21)
 * [ ] Get your model training in GCP using either the Engine or Vertex AI (M21)
-* [x] Create a FastAPI application that can do inference using your model (M22)
-* [x] Deploy your model in GCP using either Functions or Run as the backend (M23)
+* [x]  Create a FastAPI application that can do inference using your model (M22)
+* [x]  Deploy your model in GCP using either Functions or Run as the backend (M23)
 * [ ] Write API tests for your application and setup continues integration for these (M24)
 * [ ] Load test your application (M24)
 * [ ] Create a more specialized ML-deployment API using either ONNX or BentoML, or both (M25)
@@ -292,7 +292,7 @@ We used DVC with Google Drive which made us able to store the data remotely and 
 >
 > Answer:
 
---- question 11 fill here ---
+We are running unit testing and integration tests. Our tests run on  three operating systems: Ubuntu, Qindows, and Macos. We test for both python 3.12 and 3.11. We do make use of catching by utilizing pip and pyproject.toml. You can find an example workflow at this [link]( https://github.com/segiITU/dtu_mlops_group32_project/actions/runs/12957332195)
 
 ## Running code and tracking experiments
 
@@ -416,6 +416,7 @@ We also experimented with Vertex AI, i.e. GCP's AI platform, and Compute Engine 
 >
 > Answer:
 
+Unfortunately, we did not fully utilize this component of the cloud. Our problems with getting decent GPUs over the cloud prevented us from tranining the model over cloud. We only experimented with the Vertex AI to see how long would training take on CPUs.
 We experimented with using Compute Engine resources for training our model. We experimented with initializing a NVIDIA V100 and NVIDIA Tesla P4 on the europe-west4 cluster. Since we were unfamiliar with Compute Engine before this course, it was quite time-consuming to initialize an VM and even more so to be able to train a model, so we decided to do our training on a HPC, which we are more familiar with. 
 
 ### Question 19
@@ -481,7 +482,12 @@ We could not manage to train the model in the cloud. In our region, not many GPU
 >
 > Answer:
 
+
+Yes, I created an API for the BART-based text summarization model using FastAPI. The API has two endpoints: a POST endpoint /summarize for summarizing input text and a root GET endpoint to verify the API is running. The model is loaded from a file (final_model.pt) using PyTorch, and if it's not available locally, it is downloaded from Google Cloud Storage (GCS). Once the model is loaded, the input text is tokenized, and the summary is generated using the BART model's generate function. To ensure the model is ready before requests are processed, an asynchronous context manager loads the model during the app's lifespan. This API is designed to efficiently handle requests by leveraging FastAPI's asynchronous features.
+
 We did manage to write an API for our model using FastAPI - see our [main.py script here](src\dtu_mlops_group32_project\main.py). We created a POST endpoint called /summarize/ to accept input as a text file. We could have made the API more robust, if time permitted. 
+
+
 
 ### Question 24
 
@@ -582,7 +588,9 @@ We only implemented a frontend with Gradio, which you can [see here](https://bar
 >
 > Answer:
 
---- question 29 fill here ---
+![third figure](figures/workflow.png)
+
+We start with the developer node and the immediate connections show that we version controlled our project via github. We also utilized W&B for training, and used HPC to complete it. Afterwards, we used docker containers to capture our model. These Docker containers were integrated into a cloud pipeline, which utilizes Cloud Build Triggers for data control and Artifact Registry to manage and deploy the model for inference. We interfaced with our application through Cloud Run, using the FastAPI framework. Finally, we implemented a user interface to complete the workflow.
 
 ### Question 30
 
@@ -616,4 +624,5 @@ The biggest challenge we faced was the high computational demand of the t5-model
 
 s250678 was in charge of developing of setting up the initial cookie cutter project and developing of the docker containers for deploying our application. He has used genAI tools to help adjust the dockerfiles and with creating CLI inputs for deploying to the GCP.
 s250394 developed the data processing, model and training files. She also run the model training, and was responsible for W&B. She also helped with testing and continious integration. She has used genAI tools for debugging the code.
+s243805 is responsible for the creation of the FastAPI and the integration with the rest of the code, as well as for the dockerfile and configuration files for its deployment. He has used genAI to help solve bugs and errors in the code.
 
