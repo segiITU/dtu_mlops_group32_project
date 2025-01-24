@@ -164,7 +164,9 @@ We utilized Pytorch Lightning framework for the training step. For our dataset, 
 >
 > Answer:
 
---- question 4 fill here ---
+We used conda, pip, and git to manage our dependencies. To get out dependencies a new member would need to clone this repository,
+
+create a conda environment, and then install dependencies in the requirements files. 
 
 ### Question 5
 
@@ -180,7 +182,7 @@ We utilized Pytorch Lightning framework for the training step. For our dataset, 
 >
 > Answer:
 
-We initialized the project with the MLOps-specific cookiecutter template. We have removed the /notebooks folder as we have not created any notebooks to showcase this project as well as the /dockerfiles folder as all our dockerfiles were added to the root dir for ease of access. Other than that, we have have been committed to the project structure which was provided with the template as we have found that this structure is very good for maintaining a structured MLOps project with its dedicated /src, /data, /tests and /models folders being particularly useful. The template scripts and the sub-directories which were also provided in the template have also been very useful, and we have largely used these as a starting point for our project. 
+We initialized the project with the MLOps-specific cookiecutter template. We have removed the ``notebooks/`` folder as we have not created any notebooks to showcase this project, as well as the ``dockerfiles/`` folder as all our dockerfiles were added to the root directory for ease of access. Other than that, we have have been committed to the project structure which was provided with the template, as we have found that this structure is very good for maintaining a structured MLOps project with its dedicated ``src/``, ``data/``, ``tests/`` and ``models/`` folders being particularly useful. The template scripts and the sub-directories which were also provided in the template have also been very useful, and we have largely used these as a starting point for our project. 
 
 ### Question 6
 
@@ -195,7 +197,8 @@ We initialized the project with the MLOps-specific cookiecutter template. We hav
 >
 > Answer:
 
---- question 6 fill here ---
+We did not implement any definitive rules for code quality and styling, as we spent a long time solving technical issues, and thus had less time to complete some of the portions which we deemed more important. This meant that styling and code quality was deprioritized We did use typing in some portions, mainly our data, model and training scripts. Especially in these scripts, it was important for us to have consistency and readability. We also did our best to create meaningful documentation that is neither too vague or too descriptive.
+Maintaining good code quality and formatting, as well as proper typing and documentation, is incredibly important in coding porjects on a larger scale, as they provide consistency throughout the project. Additionally they provide greater readability for anyone that are attempting to familiarize themselves with the code. This means that a new member of the project can easily begin creating code that follows the same standards and practices, and thus their code should have the same level of readibility and consistancy as the rest of the project. This means that another new member is again able to quuickly and easily interpret and write code.
 
 ## Version control
 
@@ -214,7 +217,7 @@ We initialized the project with the MLOps-specific cookiecutter template. We hav
 >
 > Answer:
 
---- question 7 fill here ---
+We implemented 15 tests in total. These are primarily focused testing the data, our model, but also testing the API were implemented. In testing the data, we made sure it had the correct struture, that the abstract was shorter than the full article, and that the abstract and article had some overlap. We also tested the methods the model used for training to ensure they would generate loss upon stepping forward. In future iterations we would also want to test the output of the model and make sure the abstracts it creates are shorter and has overlap. Lastly, we tested the API by making sure it responds as we expect. 
 
 ### Question 8
 
@@ -229,7 +232,10 @@ We initialized the project with the MLOps-specific cookiecutter template. We hav
 >
 > Answer:
 
---- question 8 fill here ---
+Our code has a coverage of [___]%, with the distribution visible in the table below.
+[[[[[[INSERT TABLE]]]]]]
+[[[[EXPLAIN TABLE CONTENT]]]]
+Even if our code coverage was at 100%, then we can not trust that it is free from errors and bugs. This is due to the fact that the code coverage simply explains how much of the code is executed when running tests. Thus, the tests could insufficient in detecting all the errors or edge cases, and thus we can not trust that 100% coverage equals error free code.
 
 ### Question 9
 
@@ -244,7 +250,7 @@ We initialized the project with the MLOps-specific cookiecutter template. We hav
 >
 > Answer:
 
---- question 9 fill here ---
+We did not utilize pull requests as much as we perhaps should, as they were mainly used to set up GitHub dependencies. We did make use of multiple upstream working branches in addition to the main branch, as a form of branch protection. As each member was working on different items, we did not feel that it was necessary for each member to have their own dedicated working branch. We rarely had merge conflicts, and those were easily resolved. In future projects like this, we would however likely create dedicated branches for each person and maybe each feature to ensure no issues by working on the same branch. This setup did mean we could each participate on the working branches, and then push to the main branch once a part was working properly. The importance of branches and pull requests becomes epsecially clear when many people are working on the same project. With these, you are able to create structured versions of the project, with each pull request being an update of working code, without issues of multiple people working on the same problem.
 
 ### Question 10
 
@@ -259,7 +265,7 @@ We initialized the project with the MLOps-specific cookiecutter template. We hav
 >
 > Answer:
 
---- question 10 fill here ---
+We used DVC with Google Drive which made us able to store the data remotely and avoid having the data stored within the pipeline on GitHub. This would have helped emmensly with controlling the data, as any potential changes to the data would otherwise mean having to upload the entire dataset and any changes made to it onto GitHub. We made minimal changes to our data after preprocessing it, so the main benefit of using it, was to avoid storing the dataset on GitHub.
 
 ### Question 11
 
@@ -295,7 +301,9 @@ We initialized the project with the MLOps-specific cookiecutter template. We hav
 >
 > Answer:
 
---- question 12 fill here ---
+We did not use config files for our experiments, apart from when we did a sweep of different configurations using ``wandb``. We decided to hardcode the configurations into the training script, but with the ability to change them through the use of a simple argparser. To run an experiment while changing one of the hyperparameters, one would run the following command
+
+``Python train.py --lr 2e-3 --batchsize 10``
 
 ### Question 13
 
@@ -310,7 +318,8 @@ We initialized the project with the MLOps-specific cookiecutter template. We hav
 >
 > Answer:
 
---- question 13 fill here ---
+
+One of the hyperparameters in the training script is a seed, which is used to make the experiments reproducible. This seed ensures that when training a model with a specific set of hyperparameters, the same results can be achieved. This seed can also be changed by parsing a different seed through the argument parser. 
 
 ### Question 14
 
@@ -327,7 +336,9 @@ We initialized the project with the MLOps-specific cookiecutter template. We hav
 >
 > Answer:
 
---- question 14 fill here ---
+As seen in the first figure below, we have tracked the training loss and the validation loss. From this image we see that both the training and validation loss decrease nicely, for some of the runs. Notably, the second sweep does not even start, and sweep 3 encounters an issue which massively increases both the training and validation loss. We do see that for the first, fourth and fifth sweep, that both the training loss and validation loss begins to plateau. It can also be seen that some runs, the Early stopping halted the training process to avoid overfitting. In the second figure below we see the how the parameters impacted the validation loss. It seems we trained the model with the configurations set up incorrectly, as we idealy would train all the hyperparameters separately and not joined like this. If we had more time to train the model using wandb we would do a full sweep of all the parameters to test which combination actually gives the best result. It is difficult to see from this image, but sweep 1 and 4 has almost exactly the same parameters and thus yield very similar results. Sweep 5 has a lower learning rate, but also yields a similar validation loss as sweep 1 and 4. 
+![first figure](figures/Wandb_full.png)
+![second figure](figures/Wandb_graph.png)
 
 ### Question 15
 
@@ -357,7 +368,8 @@ We initialized the project with the MLOps-specific cookiecutter template. We hav
 >
 > Answer:
 
---- question 16 fill here ---
+When encountering bugs while running experiments, we first manually read the error messages and reviewed our code to identify the source of the issue. If the issue persisted, we would test smalller sections of the code and go through the documentation to isolate the mistake. In addition, we also consulted online resources in case similar bugs with known solutions existed. We did not utilize debugging tools such as the Python debugger, though it would likely have been helpful. 
+We did not try profiling our code, not because we think it's already perfect, but because we prioritised other tasks. Profiling the code would have been good, to check that it is not being called more than necessary and that no tasks take longer than expected.
 
 ## Working in the cloud
 
@@ -431,7 +443,9 @@ We initialized the project with the MLOps-specific cookiecutter template. We hav
 >
 > Answer:
 
---- question 22 fill here ---
+We could not manage to train the model in the cloud. In our region, not many GPU types were available. That is why neither the Compute Engine, nor the Vertex AI were completely implemented,
+
+though we did start training runs over Vertex AI to see how slow it was on CPU.
 
 ## Deployment
 
@@ -479,7 +493,7 @@ We initialized the project with the MLOps-specific cookiecutter template. We hav
 >
 > Answer:
 
---- question 25 fill here ---
+To unittest the API, we simply tested whether the API worked and responded with the expected status code.
 
 ### Question 26
 
@@ -494,7 +508,7 @@ We initialized the project with the MLOps-specific cookiecutter template. We hav
 >
 > Answer:
 
---- question 26 fill here ---
+We did not manage to implement any tools for monitoring the data due to time constraints. Though, if we had time to do so, we would have liked to implement system monitoring of our Google cloud service system, to make sure it alerts us if it encounters an issue or if the model is not behaving as expected. The creation of these alert constraints are time-consuming and the reason we omitted implementing them.
 
 ## Overall discussion of project
 
