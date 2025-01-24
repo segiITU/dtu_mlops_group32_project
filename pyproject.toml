@@ -20,9 +20,10 @@ requires-python = ">=3.11"
 dynamic = ["dependencies", "optional-dependencies"]
 
 [tool.setuptools]
-# Find both the src-based package and the app package
-packages = {find = {where = ["src", "app"]}}
-
+packages = [
+  "app",
+  {find = {where = "src"}}
+]
 [tool.setuptools.dynamic]
 dependencies = {file = ["requirements.txt"]}
 
