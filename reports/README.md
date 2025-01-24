@@ -294,7 +294,7 @@ We used DVC with Google Drive which made us able to store the data remotely and 
 >
 > Answer:
 
---- question 11 fill here ---
+We are running unit testing and integration tests. Our tests run on  three operating systems: Ubuntu, Qindows, and Macos. We test for both python 3.12 and 3.11. We do make use of catching by utilizing pip and pyproject.toml. You can find an example workflow at this [link]( https://github.com/segiITU/dtu_mlops_group32_project/actions/runs/12957332195)
 
 ## Running code and tracking experiments
 
