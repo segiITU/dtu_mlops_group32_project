@@ -1,4 +1,8 @@
 # Note that the Cloud Build trigger has been created in a staging area to make sure it is working as expected before deploying to production.
+
+options:
+  logging: CLOUD_LOGGING_ONLY
+  
 steps:
   - name: 'gcr.io/cloud-builders/docker'
     args: ['build', '-t', '${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_ARTIFACT_REPO}/${_SERVICE_NAME}:${_TAG}', '.']
