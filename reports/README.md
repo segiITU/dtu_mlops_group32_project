@@ -474,7 +474,9 @@ though we did start training runs over Vertex AI to see how slow it was on CPU.
 >
 > Answer:
 
---- question 23 fill here ---
+Yes, I created an API for the BART-based text summarization model using FastAPI. The API has two endpoints: a POST endpoint /summarize for summarizing input text and a root GET endpoint to verify the API is running. The model is loaded from a file (final_model.pt) using PyTorch, and if it's not available locally, it is downloaded from Google Cloud Storage (GCS). Once the model is loaded, the input text is tokenized, and the summary is generated using the BART model's generate function. To ensure the model is ready before requests are processed, an asynchronous context manager loads the model during the app's lifespan. This API is designed to efficiently handle requests by leveraging FastAPI's asynchronous features.
+
+
 
 ### Question 24
 
