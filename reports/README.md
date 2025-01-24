@@ -164,7 +164,8 @@ We utilized Pytorch Lightning framework for the training step. For our dataset, 
 >
 > Answer:
 
---- question 4 fill here ---
+We used conda, pip, and git to manage our dependencies. To get out dependencies a new member would need to clone this repository,
+create a conda environment, and then install dependencies in the requirements files. 
 
 ### Question 5
 
@@ -195,8 +196,9 @@ We initialized the project with the MLOps-specific cookiecutter template. We hav
 >
 > Answer:
 
---- question 6 fill here ---
-
+We implemented typing and tried to complement our code with succint comments. We also run Ruff to lint and clean our code.
+These practices matter more in larger projects, as a multitude of workers can be focusing on different parts of the project,
+and not adhering to good coding practices would lead the project to be messy, unintelligible and difficult to run.
 ## Version control
 
 > In the following section we are interested in how version control was used in your project during development to
@@ -214,7 +216,8 @@ We initialized the project with the MLOps-specific cookiecutter template. We hav
 >
 > Answer:
 
---- question 7 fill here ---
+We implemented 5 tests. We focused on if the data processing, model or the API is working properly.
+
 
 ### Question 8
 
