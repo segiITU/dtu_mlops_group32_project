@@ -35,16 +35,6 @@ jobs:
           pip install -r requirements_tests.txt
           pip install -e .
 
-      - name: Debug Installed Packages
-        run: |
-          pip list | grep dtu_mlops_group32_project
-          python -c "import sys; print(sys.path)"
-          python -c "import dtu_mlops_group32_project; print(dtu_mlops_group32_project.__file__)"
-
-      - name: Debug pytest collection
-        run: |
-          pytest --collect-only -v
-
       - name: Run tests & coverage
         run: |
           coverage run -m pytest tests/ -v
