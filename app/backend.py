@@ -9,12 +9,10 @@ from google.cloud import storage
 from contextlib import asynccontextmanager
 
 
-# Define request model
 class SummarizationRequest(BaseModel):
     text: str
 
 
-# Load model function
 def load_model(model_path: str = "final_model.pt") -> BartSummarizer:
     """Load the BART model from the specified path."""
     model = BartSummarizer()
@@ -24,7 +22,6 @@ def load_model(model_path: str = "final_model.pt") -> BartSummarizer:
     model = model.to(device)
     return model
 
-# Download model from GCS
 def download_model(bucket_name: str, source_blob_name: str, destination_file_name: str) -> None:
     """Download a file from Google Cloud Storage."""
     storage_client = storage.Client()
@@ -33,7 +30,6 @@ def download_model(bucket_name: str, source_blob_name: str, destination_file_nam
     blob.download_to_filename(destination_file_name)
     print(f"Downloaded {source_blob_name} to {destination_file_name}.")
 
-# Generate summary function
 def generate_summary(text: str, model: BartSummarizer) -> Dict[str, str]:
     """
     Generate summary from input text using the provided BART model.
