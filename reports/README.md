@@ -513,7 +513,7 @@ We initialized the project with the MLOps-specific cookiecutter template. We hav
 >
 > Answer:
 
---- question 27 fill here ---
+Group member s250678 spent all $50 free USD credits during the exercises and activated another free billing account. It is difficult to get a cost breakdown of a billing account when it uses free credits, so it has not been possible to find out exactly what services drained the $50 free credits, but he presumably activated a service and forgot to turn it off again.
 
 ### Question 28
 
@@ -578,4 +578,4 @@ We initialized the project with the MLOps-specific cookiecutter template. We hav
 > *We have used ChatGPT to help debug our code. Additionally, we used GitHub Copilot to help write some of our code.*
 > Answer:
 
---- question 31 fill here ---
+s250678 was in charge of developing of setting up the initial cookie cutter project and developing of the docker containers for deploying our application. He has used genAI tools to help adjust the dockerfiles and with creating CLI inputs for deploying on the GCP.
