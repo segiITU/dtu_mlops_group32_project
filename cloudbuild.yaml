@@ -1,0 +1,16 @@
+# Note: that the Cloud Build trigger has been created in a staging area to make sure it is working as expected before deploying to production.
+# therefore, the image has been re-created from previously existing image in Artifact Registry.
+# Note: added approval before triggering re-build, but could also consider manual trigger or delayed trigger.
+
+steps:
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    args: ['gcloud', 'run', 'deploy', '${_SERVICE_NAME}', '--image', '${_PROD_IMAGE}', '--region', '${_REGION}', '--platform', 'managed', '--allow-unauthenticated']
+    id: 'Deploy to Cloud Run'
+
+options:
+  logging: CLOUD_LOGGING_ONLY
+
+substitutions:
+  _REGION: 'europe-west1'
+  _SERVICE_NAME: 'bart-summarizer-staging'
+  _PROD_IMAGE: 'europe-west1-docker.pkg.dev/plucky-mode-447809-r7/dtu-mlops-registry/bart-summarizer:latest'
