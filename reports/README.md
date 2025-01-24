@@ -514,6 +514,7 @@ We initialized the project with the MLOps-specific cookiecutter template. We hav
 > Answer:
 
 Group member s250678 spent all $50 free USD credits during the exercises and activated another free billing account. It is difficult to get a cost breakdown of a billing account when it uses free credits, so it has not been possible to find out exactly what services drained the $50 free credits, but he presumably activated a service and forgot to turn it off again.
+s250394 spent 3.07 overall, but it is difficult to assess how much was spent on the exercises and how much was spent on the project.
 
 ### Question 28
 
@@ -560,7 +561,7 @@ Group member s250678 spent all $50 free USD credits during the exercises and act
 >
 > Answer:
 
---- question 30 fill here ---
+The biggest challenge we faced was the high computational demand of the t5-model we tried to run. Unfortunately, we were unable to get GPUs in the cloud, this proved that the we had to discard our first core files that we constructed for T5. Given the time restriction of the project, we decided to scale down to a BART-base, and use the HPC of s250394's university for training, as with cloud CPU this would also take several days. We also had to scale down our data. 
 
 ### Question 31
 
@@ -579,3 +580,5 @@ Group member s250678 spent all $50 free USD credits during the exercises and act
 > Answer:
 
 s250678 was in charge of developing of setting up the initial cookie cutter project and developing of the docker containers for deploying our application. He has used genAI tools to help adjust the dockerfiles and with creating CLI inputs for deploying to the GCP.
+s250394 developed the data processing, model and training files. She also run the model training, and was responsible for W&B. She also helped with testing and continious integration. She has used genAI tools for debugging the code.
+
