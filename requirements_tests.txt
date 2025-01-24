@@ -2,3 +2,4 @@ httpx==0.28.1
 pytest
 datasets==3.2.0
 coverage
+nltk
