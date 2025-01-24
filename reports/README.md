@@ -578,4 +578,4 @@ Group member s250678 spent all $50 free USD credits during the exercises and act
 > *We have used ChatGPT to help debug our code. Additionally, we used GitHub Copilot to help write some of our code.*
 > Answer:
 
-s250678 was in charge of developing of setting up the initial cookie cutter project and developing of the docker containers for deploying our application. He has used genAI tools to help adjust the dockerfiles and with creating CLI inputs for deploying on the GCP.
+s250678 was in charge of developing of setting up the initial cookie cutter project and developing of the docker containers for deploying our application. He has used genAI tools to help adjust the dockerfiles and with creating CLI inputs for deploying to the GCP.
