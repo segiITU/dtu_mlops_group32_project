@@ -40,4 +40,4 @@ jobs:
       - name: Run tests & coverage
         run: |
           coverage run -m pytest
-          coverage report -m
+          coverage report -m --skip-covered --no-source
