@@ -37,4 +37,5 @@ jobs:
 
       - name: Run tests & coverage
         run: |
-          pytest --ignore=src
+          cd dtu_mlops_group32_project/src
+          pytest
