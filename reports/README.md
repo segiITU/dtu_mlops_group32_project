@@ -164,9 +164,7 @@ We utilized Pytorch Lightning framework for the training step. For our dataset, 
 >
 > Answer:
 
-We used conda, pip, and git to manage our dependencies. To get out dependencies a new member would need to clone this repository,
-
-create a conda environment, and then install dependencies in the requirements files. 
+We used conda, pip, and git to manage our dependencies. To get out dependencies a new member would need to clone this repository, create a conda environment, and then install dependencies in the requirements files. 
 
 ### Question 5
 
