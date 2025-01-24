@@ -413,7 +413,7 @@ We did not try profiling our code, not because we think it's already perfect, bu
 >
 > Answer:
 
---- question 18 fill here ---
+Unfortunately, we did not fully utilize this component of the cloud. Our problems with getting decent GPUs over the cloud prevented us from tranining the model over cloud. We only experimented with the Vertex AI to see how long would training take on CPUs.
 
 ### Question 19
 
@@ -576,6 +576,9 @@ s250394 spent 3.07 overall, but it is difficult to assess how much was spent on 
 > Answer:
 
 ![third figure](figures/workflow.png)
+
+We start with the developer node and the immediate connections show that we version controlled our project via github. We also utilized W&B for training, and used HPC to complete it. Afterwards, we used docker containers to capture our model. These Docker containers were integrated into a cloud pipeline, which utilizes Cloud Build Triggers for data control and Artifact Registry to manage and deploy the model for inference. We interfaced with our application through Cloud Run, using the FastAPI framework. Finally, we implemented a user interface to complete the workflow.
+
 ### Question 30
 
 > **Discuss the overall struggles of the project. Where did you spend most time and what did you do to overcome these**
