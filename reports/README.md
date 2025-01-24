@@ -575,8 +575,7 @@ s250394 spent 3.07 overall, but it is difficult to assess how much was spent on 
 >
 > Answer:
 
---- question 29 fill here ---
-
+![third figure](figures/workflow.png)
 ### Question 30
 
 > **Discuss the overall struggles of the project. Where did you spend most time and what did you do to overcome these**
