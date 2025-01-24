@@ -42,4 +42,6 @@ omit = [
   "src/dtu_mlops_group32_project/main.py",
   "src/dtu_mlops_group32_project/train.py",
   "src/dtu_mlops_group32_project/visualize.py",
+  "app/main.py"
+  "tasks.py"
 ]
