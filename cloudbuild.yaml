@@ -1,4 +1,5 @@
-# Note that the Cloud Build trigger has been created in a staging area to make sure it is working as expected before deploying to production.
+# Note: that the Cloud Build trigger has been created in a staging area to make sure it is working as expected before deploying to production.
+# Note: added approval before triggering re-build, but could also consider manual trigger or delayed trigger.
 
 steps:
   - name: 'gcr.io/cloud-builders/docker'
