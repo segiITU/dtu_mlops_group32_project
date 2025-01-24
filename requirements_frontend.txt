@@ -1,0 +1,2 @@
+gradio>=2.0.0
+google-cloud-run>=0.10.5
