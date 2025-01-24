@@ -1,0 +1,16 @@
+{
+  "os":  "macOS-14.7.2-arm64-arm-64bit",
+  "python":  "CPython 3.12.6",
+  "startedAt":  "2025-01-22T15:21:22.302940Z",
+  "program":  "/Users/argy/workspace/dtu_argy/src/dtu_mlops_group32_project/wand.py",
+  "codePath":  "src/dtu_mlops_group32_project/wand.py",
+  "git":  {
+    "remote":  "https://github.com/arzuburcuguven/dtu_argy.git",
+    "commit":  "c4982596c0c4a2c12cc3116a478d0aabd496b400"
+  },
+  "email":  "arzuburcuguven@gmail.com",
+  "root":  "/Users/argy/workspace/dtu_argy/src/dtu_mlops_group32_project",
+  "host":  "mac623818 ",
+  "executable":  "/Users/argy/.pyenv/versions/3.12.6/bin/python",
+  "codePathLocal":  "wand.py"
+}

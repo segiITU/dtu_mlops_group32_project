@@ -1,0 +1,44 @@
+{
+  "os":  "macOS-14.7.2-arm64-arm-64bit",
+  "python":  "CPython 3.12.6",
+  "startedAt":  "2025-01-23T13:23:33.225677Z",
+  "program":  "/Users/argy/workspace/dtu_argy/src/dtu_mlops_group32_project/train.py",
+  "codePath":  "src/dtu_mlops_group32_project/train.py",
+  "git":  {
+    "remote":  "https://github.com/arzuburcuguven/dtu_argy.git",
+    "commit":  "c3d732fc9ddc239d8b20373571b262e64868bf61"
+  },
+  "email":  "arzuburcuguven@gmail.com",
+  "root":  "/Users/argy/workspace/dtu_argy/src/dtu_mlops_group32_project",
+  "host":  "mac623818 ",
+  "executable":  "/Users/argy/.pyenv/versions/3.12.6/bin/python",
+  "codePathLocal":  "train.py",
+  "cpu_count":  10,
+  "cpu_count_logical":  10,
+  "disk":  {
+    "/":  {
+      "total":  "994662584320",
+      "used":  "338734903296"
+    },
+    "/System/Volumes/Data":  {
+      "total":  "994662584320",
+      "used":  "338734903296"
+    }
+  },
+  "memory":  {
+    "total":  "17179869184"
+  },
+  "cpu":  {
+    "count":  10,
+    "countLogical":  10
+  },
+  "apple":  {
+    "name":  "Apple M2 Pro",
+    "ecpuCores":  4,
+    "pcpuCores":  6,
+    "gpuCores":  16,
+    "memoryGb":  16,
+    "swapTotalBytes":  "11811160064",
+    "ramTotalBytes":  "17179869184"
+  }
+}
