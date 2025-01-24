@@ -9,7 +9,9 @@ from google.cloud import run_v2
 @st.cache_resource  
 def get_backend_url():
     """Get the URL of the backend service."""
-    parent = "projects/dtu_mlops_group32/locations/<region>"
+    # Replace hardcoded values
+    parent = "projects/plucky-mode-447809-r7/locations/europe-west1"  # Your project/region
+    service_name = "bart-summarizer"  # Your backend service name
     client = run_v2.ServicesClient()
     services = client.list_services(parent=parent)
     for service in services:

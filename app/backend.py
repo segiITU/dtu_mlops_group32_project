@@ -72,7 +72,7 @@ def generate_summary(text: str, model: BartSummarizer) -> Dict[str, str]:
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    MODEL_PATH = "final_model.pt"
+    MODEL_PATH = "/app/models/checkpoints/final_model.pt"
     if not os.path.exists(MODEL_PATH):
         print("Downloading model from GCS...")
         download_model(
