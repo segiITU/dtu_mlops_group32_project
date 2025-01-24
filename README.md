@@ -12,7 +12,3 @@ We have considered used the [PubMed summarization dataset](https://huggingface.c
 #### What models do you expect to use
 [BART](https://huggingface.co/docs/transformers/model_doc/bart) is a encoder-decoder transformer model that has achieved particularly good results in the abstractive summarization task, which is why we have chosen to fine-tune this model. 
 
-
-
-
-
