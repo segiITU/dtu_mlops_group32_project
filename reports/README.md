@@ -232,9 +232,21 @@ We implemented 15 tests in total. These are primarily focused testing the data, 
 >
 > Answer:
 
-Our code has a coverage of [___]%, with the distribution visible in the table below.
-[[[[[[INSERT TABLE]]]]]]
-[[[[EXPLAIN TABLE CONTENT]]]]
+Our code has a coverage of [86]%, with the distribution visible in the table below.
+| Name                                       | Stmts | Miss | Cover |
+|--------------------------------------------|-------|------|-------|
+| app/__init__.py                            | 0     | 0    | 100%  |
+| src/dtu_mlops_group32_project/__init__.py  | 5     | 0    | 100%  |
+| src/dtu_mlops_group32_project/data.py      | 37    | 15   | 59%   |
+| src/dtu_mlops_group32_project/main.py      | 33    | 18   | 45%   |
+| src/dtu_mlops_group32_project/model.py     | 37    | 3    | 92%   |
+| tests/__init__.py                          | 5     | 0    | 100%  |
+| tests/integrationtests/test_api.py         | 7     | 0    | 100%  |
+| tests/unittests/test_data.py               | 31    | 0    | 100%  |
+| tests/unittests/test_model.py              | 21    | 1    | 95%   |
+|--------------------------------------------|-------|------|-------|
+| **TOTAL**                                  | 176   | 37   | 86%   |
+
 Even if our code coverage was at 100%, then we can not trust that it is free from errors and bugs. This is due to the fact that the code coverage simply explains how much of the code is executed when running tests. Thus, the tests could insufficient in detecting all the errors or edge cases, and thus we can not trust that 100% coverage equals error free code.
 
 ### Question 9
