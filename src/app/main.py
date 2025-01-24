@@ -4,7 +4,7 @@ from typing import Dict
 import os
 import torch
 from transformers import BartTokenizer
-from src.dtu_mlops_group32_project.model import BartSummarizer
+from dtu_mlops_group32_project.model import BartSummarizer
 from google.cloud import storage
 from contextlib import asynccontextmanager
 
