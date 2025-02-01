@@ -11,7 +11,7 @@ pydantic==2.9.2
 joblib==1.4.2
 numpy==2.2.0
 wandb==0.19.3
-loguru==0.7.2
+loguru==0.7.3
 invoke==2.2.0
 dvc==3.58.0
 dvc-gdrive==3.0.1
